@@ -16,14 +16,18 @@ namespace UnitTest{
        public  IConfigurationRoot Configuration { get; private set;}
        public BaseTestFixture()
        {
-           var envNamr = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-           var builder = new ConfigurationBuilder()
+           var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            
+        var builder = new ConfigurationBuilder()
            .AddJsonFile("appsettings.json",optional:true,reloadOnChange:true)
            .AddJsonFile($"appsettings.{envName}.json",optional:true)
            .AddEnvironmentVariables();
+           
            Configuration = builder.Build();
+           
            var opts = new DbContextOptionsBuilder<DataContext>();
            opts.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+           TestDataContext = new DataContext(opts.Options);
            SetupDatabase();
 
            Server = new TestServer(new WebHostBuilder().UseStartup<Startup>());
@@ -33,8 +37,25 @@ namespace UnitTest{
        }
 
        private void SetupDatabase()
-       {
+        {
+            try {
 
+            TestDataContext.Database.EnsureCreated();
+            TestDataContext.Database.Migrate();
+
+            }
+
+            catch(Exception ex)
+            {
+
+            }
+       }
+
+       public void Dispose()
+       {
+           TestDataContext.Dispose();
+           Client.Dispose();
+           Server.Dispose();
        }
     }
 }

@@ -2,7 +2,8 @@ using Xunit;
 
 namespace UnitTest{
     [CollectionDefinition("Base Collection")]
-    public abstract class BaseTestCollection{
+    public abstract class BaseTestCollection : ICollectionFixture<BaseTestFixture>
+    {
         
     }
 }
