@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using workshopcore20161128.Models;
+using WorkShopCore.Models;
 
-namespace workshopcore20161128.Migrations
+namespace WorkShopCore.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
@@ -16,7 +16,7 @@ namespace workshopcore20161128.Migrations
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("workshopcore20161128.Models.Pessoa", b =>
+            modelBuilder.Entity("WorkShopCore.Models.Pessoa", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();

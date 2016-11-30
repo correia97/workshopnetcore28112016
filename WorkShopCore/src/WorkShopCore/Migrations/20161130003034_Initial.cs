@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace workshopcore20161128.Migrations
+namespace WorkShopCore.Migrations
 {
-    public partial class MigracaoInicial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

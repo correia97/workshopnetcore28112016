@@ -1,20 +1,20 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using workshopcore20161128.Models;
+using WorkShopCore.Models;
 
-namespace workshopcore20161128.Controllers
+namespace WorkShopCore.Controllers
 {
     [Route("api/pessoas")]
-    public class PessoasController
+    public class PessoasController : Controller
     {
- 
- private readonly DataContext _dataContext;
-    public PessoasController(DataContext dataContext)
-    {
-        _dataContext = dataContext;
-    }
-     [HttpGet]
+
+        private readonly DataContext _dataContext;
+        public PessoasController(DataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
+        [HttpGet]
         public async Task<IActionResult> ObterPessoas()
         {
             var pessoas = await _dataContext.Pessoas.ToListAsync();
@@ -28,6 +28,6 @@ namespace workshopcore20161128.Controllers
             await _dataContext.SaveChangesAsync();
 
             return Json(modelo);
-}
+        }
     }
 }

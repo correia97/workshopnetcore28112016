@@ -1,4 +1,4 @@
-namespace workshopcore20161128.Models
+namespace WorkShopCore.Models
 {
     public class Pessoa
     {

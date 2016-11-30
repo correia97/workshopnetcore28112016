@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using workshopcore20161128.Models;
 using Microsoft.EntityFrameworkCore;
+using WorkShopCore.Models;
 
-namespace workshopcore20161128
+namespace WorkShopCore
 {
     public class Startup
     {
@@ -31,9 +31,9 @@ namespace workshopcore20161128
         {
             // Add framework services.
             services.AddMvc();
-            
-            services.AddDbContext<DataContext>(
-                options=> options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+
+            services.AddDbContext<DataContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
         }
 
