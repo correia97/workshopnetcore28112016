@@ -18,10 +18,10 @@ database:
 
 test:
   pre:
-    - dotnet build src/unittest/project.json
+    - dotnet build WorkShopCore/src/unittest/project.json
   override:
-    - dotnet test src/unittest/project.json
+    - dotnet test WorkShopCore/src/unittest/project.json
   post:
     - dotnet publish --configuration Release src/WorkshopCore/project.json
-    - cp -R src/WorkshopCore/bin/Release/netcoreapp1.1/ $CIRCLE_ARTIFACTS/
+    - cp -R WorkShopCore/src/WorkShopCore/bin/Release/netcoreapp1.1/ $CIRCLE_ARTIFACTS/
  
