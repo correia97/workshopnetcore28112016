@@ -1,0 +1,27 @@
+machine:
+  services:
+    - docker
+  post:
+    - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
+    - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    - sudo apt-get update
+    - sudo apt-get install dotnet-dev-1.0.0-preview2.1-003177
+
+dependencies:
+  override:
+    - dotnet restore
+
+database:
+  override:
+    - docker run -d -p 1433:1433 -e SA_PASSWORD=Workshop@123 -e ACCEPT_EULA=Y --name mssql microsoft/mssql-server-linux
+    - docker inspect mssql
+
+test:
+  pre:
+    - dotnet build WorkshopCore/src/unittest/project.json
+  override:
+    - dotnet test WorkshopCore/src/unittest/project.json
+  post:
+    - dotnet publish --configuration Release WorkshopCore/src/WorkshopCore/project.json
+    - cp -R WorkshopCore/src/WorkshopCore/bin/Release/netcoreapp1.1/ $CIRCLE_ARTIFACTS/
+ 
