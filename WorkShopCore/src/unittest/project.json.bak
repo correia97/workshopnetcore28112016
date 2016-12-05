@@ -6,9 +6,9 @@
     "xunit": "2.2.0-beta4-build3444",
     "xunit.runners": "2.0.0",
     "Microsoft.AspnetCore.TestHost": "1.0.0",
-    "WorkShopCore": { "target": "project" },
-    "xunit.runner.console": "2.1.0",
-    "xunit.runner.visualstudio": "2.1.0"
+"Microsoft.DotNet.InternalAbstractions": "1.0.0",
+    "WorkShopCore": { "target": "project" }
+ 
 
   },
   "frameworks": {
@@ -23,7 +23,8 @@
   },
     "buildOptions": {
         "copyToOutput": {
-            "include": [ "xunit.runner.json" ]
+            "include": [ "xunit.runner.json",
+"appsettings.json" ]
         }
     },
     "tooling": {

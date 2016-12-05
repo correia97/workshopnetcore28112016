@@ -33,6 +33,7 @@ namespace UnitTest{
            Server = new TestServer(new WebHostBuilder().UseStartup<Startup>());
            Client = Server.CreateClient();
 
+
        }
 
        private void SetupDatabase()
@@ -41,6 +42,7 @@ namespace UnitTest{
 
             TestDataContext.Database.EnsureCreated();
             TestDataContext.Database.Migrate();
+
             }
 
             catch
