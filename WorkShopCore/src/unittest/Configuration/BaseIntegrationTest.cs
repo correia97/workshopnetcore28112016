@@ -7,6 +7,7 @@ using Xunit;
 
 namespace UnitTest
 {
+    
     [Collection("Base collection")]
     public abstract class BaseIntegrationTest
     {
