@@ -8,7 +8,7 @@ using Xunit;
 namespace UnitTest
 {
     
-    [Collection("Base collection")]
+    [Collection("Base Collection")]
     public abstract class BaseIntegrationTest
     {
         protected readonly TestServer Server;
