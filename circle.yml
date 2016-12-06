@@ -25,11 +25,4 @@ test:
     - dotnet publish --configuration Release src/WorkshopCore/project.json
     - cp -R WorkShopCore/src/WorkShopCore/bin/Release/netcoreapp1.1/ $CIRCLE_ARTIFACTS/
  
- deployment:
-  master:
-    branch: master
-    commands:
-      - docker build -t WorkShopCore .
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
-      - docker tag WorkShopCore $DOCKER_USER/WorkShopCore:latest
-      - docker push $DOCKER_USER/WorkShopCore
+ 
