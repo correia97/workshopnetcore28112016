@@ -22,6 +22,6 @@ test:
   override:
     - dotnet test WorkShopCore/src/unittest/project.json
   post:
-    - dotnet publish --configuration Release src/WorkshopCore/project.json
-    - cp -R src/WorkShopCore/bin/Release/netcoreapp1.1/ $CIRCLE_ARTIFACTS/
+    - dotnet publish --configuration Release WorkShopCore/src/WorkshopCore/project.json
+    - cp -R WorkShopCore/src/WorkShopCore/bin/Release/netcoreapp1.1/ $CIRCLE_ARTIFACTS/
  
