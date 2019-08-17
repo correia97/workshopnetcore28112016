@@ -12,8 +12,8 @@ jobs:
      - run:
          name: Build App
          command:
-           dotnet build WorkShopCore/src/unittest/project.json
+           dotnet build WorkShopCore/WorkShopCore.sln
      - run:
          name: Run Test
          command:
-           dotnet test WorkShopCore/src/unittest/project.json --no-build
+           dotnet test WorkShopCore/WorkShopCore.sln --no-build
