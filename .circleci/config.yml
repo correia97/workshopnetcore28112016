@@ -8,12 +8,12 @@ jobs:
      - run:
          name: Restore packages
          command:
-           dotnet restore
+           dotnet restore WorkShopCore/WorkShopCore.sln
      - run:
          name: Build App
          command:
-           dotnet build
+           dotnet build WorkShopCore/src/unittest/project.json
      - run:
          name: Run Test
          command:
-           dotnet test --no-build
+           dotnet test WorkShopCore/src/unittest/project.json --no-build
